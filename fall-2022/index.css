@@ -72,14 +72,14 @@ a:after{color: var(--text);}
 .icon{text-decoration:none;transition: .2s linear;}
 .icon:hover{color:var(--blue);}
 
-h1{font-size:40px;line-height:1.6;font-weight:400;text-transform: uppercase;margin-bottom:12px;}
-h2{font-size:28px;line-height:1.6;font-weight:200;}
+h1{font-size:40px;line-height:1.6;font-weight:400;text-transform: uppercase;}
+h2,details > ol > li{font-size:28px;line-height:1.6;font-weight:200;}
+details > ol > li{margin: 16px 0 0 24px;}
+details > ol > ul{padding-left:16px;}
 summary,h6,p,table{font-size:20px;line-height:1.6;}
-summary,h6 {font-weight: 400;}
+h6 {font-weight: 400;}
 p span, button, .case-study, span{font-size:20px;line-height:1.6;font-weight:400;}
-p,ul,ol,li,p a,table{font-weight:200;}
-
-details > ul{padding-left:16px;}
+p,ul,ol,li,p a,table, summary{font-weight:200;}
 
 ul{font-family: 'Noto Sans KR', sans-serif; font-size:20px;line-height:36px;font-weight:400;}
 ul li a{text-decoration:none;font-weight:400;}
