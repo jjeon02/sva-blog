@@ -75,7 +75,7 @@ a:after{color: var(--text);}
 h1{font-size:40px;line-height:1.6;font-weight:400;text-transform: uppercase;}
 h2,details > ol > li{font-size:28px;line-height:1.6;font-weight:200;}
 details > h1 {margin-top: 24px;}
-details > ol > li{margin: 24px 0 0 24px;}
+details > ol > li{margin: 24px 0 0 32px;}
 details > ol > ul{padding-left:16px;}
 summary,h6,p,table{font-size:20px;line-height:1.6;}
 h6 {font-weight: 400;}
