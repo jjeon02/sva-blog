@@ -104,7 +104,7 @@ h2 a:hover,h6 a:hover,ul li a:hover, p a:hover{color:blue;}
 }
 
 /* SECTIONS */
-section{width:100%;padding:24px;max-width:1200px;margin: 0 auto;}
+section{width:100%;padding:24px;max-width:960px;margin: 0 auto;}
 summary{width:100%;border:none;}
 .grid-index{
     width:100%;
