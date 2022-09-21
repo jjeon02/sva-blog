@@ -55,10 +55,18 @@ footer{
     src: url("Noto_Sans_KR/NotoSansKR-Black.otf"), url("Noto_Sans_KR/NotoSansKR-Bold.otf"), url("Noto_Sans_KR/NotoSansKR-Light.otf"), url("Noto_Sans_KR/NotoSansKR-Medium.otf"), url("Noto_Sans_KR/NotoSansKR-Regular.otf"), url("Noto_Sans_KR/NotoSansKR-Thin.otf");
 } 
     
+/* @font-face {
+    font-family: "pixelVarious";src: url("RetroFutureGX.ttf");font-weight: 100 900;
+} */
+
 @font-face {
-    font-family: "pixelVarious";
-    src: url("RetroFutureGX.ttf");
-    font-weight: 100 900;
+    font-family: 'Prompt', sans-serif;
+    src: url("Prompt/Prompt-Black.ttf"),url("Prompt/Prompt-BlackItalic.ttf"),url("Prompt/Prompt-Bold.ttf"),url("Prompt/Prompt-BoldItalic.ttf"),url("Prompt/Prompt-ExtraBold.ttf"),url("Prompt/Prompt-ExtraBoldItalic.ttf"),url("Prompt/Prompt-ExtraLight.ttf"),url("Prompt/Prompt-ExtraLightItalic.ttf"), url("Prompt/Prompt-Italic.ttf"), url("Prompt/Prompt-Light.ttf"),url("Prompt/Prompt-LightItalic.ttf"),url("Prompt/Prompt-Medium.ttf");
+}
+
+@font-face {
+    font-family: 'Syne', sans-serif;
+    src: url(Syne/static/Syne-Bold.ttf), url(Syne/static/Syne-ExtraBold.ttf), url(Syne/static/Syne-Medium.ttf), url(Syne/static/Syne-Regular.ttf),url(Syne/static/Syne-SemiBold.ttf);
 }
 
 h1, h2, h3, h4, h5, h6, p, a, span, ul, li, ol, caption, summary, table, pre{
@@ -107,11 +115,11 @@ h2 a:hover,h6 a:hover,ul li a:hover, p a:hover{color:blue;}
 }
 
 /* SECTIONS */
-section{width:100%;padding:24px;max-width:960px;margin: 0 auto;}
+section{width:100%;padding:24px;max-width:1080px;margin: 0 auto;}
 summary{width:100%;border:none;}
 details > ol > img{padding: 12px 0;}
 
-.grid-index{width:100%;display:grid;grid-template-columns: 24% 1fr;grid-gap:32px;}
+.grid-index{width:100%;display:grid;grid-template-columns: 280px 1fr;grid-gap:32px;}
 details > .grid-index{margin: 60px 0 0 0;}
 .grid-flex{width:100%;display:flex;grid-gap:24px;margin: 12px 0 0 0;}
 .grid-box{width:100%;margin-bottom: 12px;}

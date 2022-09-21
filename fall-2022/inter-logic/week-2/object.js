@@ -35,3 +35,6 @@ var mySleepStatus = function (mySleep){
 let myStatement = "I do my homework using my" + myTools[0] + ". I usually listen to music using " + myMusic["App"] + " and my favourite instrument is " + myMusic["instrument"] + ". I am " + myYearsLeftinSchool + " years away from graduating from Grad School. " + mySleepStatus(5.2) + " The statement that I slept more than 6 hours is " + mySleepBoolean + "."
 
 console.log(myStatement)
+
+// Assignment 
+// What if different types of data can be represented with lego blocks? They're good for visualizing since they are color-coded and easy to build structure. They can be used to represent quantity of the data - especially number as well.
