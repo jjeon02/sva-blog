@@ -15,7 +15,7 @@ def introStory():
 
     # intro story, quick and dirty (think star wars style)
     print ("You received a text msg from your friend")
-    print (">> 'Hey," +  player["name"] + " !"+"We're still having dinner at 6, right?'")
+    print (">> 'Hey, " +  player["name"] + " !"+"We're still having dinner at 6, right?'")
     print (">> 'Sorry, I think I might be a bit late. I'm looking for my wallet.'")
     print (">> 'No worries, but make sure to come asap!'")
     print (" It's your friend's birthday today and you are going to her birthday party.")
@@ -41,11 +41,11 @@ def chooseParty():
 # two ending results
 
 def badEnding():
-    printGraphic("wallet")
+    # printGraphic("wallet")
     print("-------------------------------")
     print("You were not able to find your wallet and missed the party. Your friend is very sad.")
     input("press enter >")
-    print("Friend: I'm disappointed at you," + player["name"] ) # customized with a name
+    print("Friend: I'm disappointed at you, " + player["name"] ) # customized with a name
     input("press enter >")
     return
 
