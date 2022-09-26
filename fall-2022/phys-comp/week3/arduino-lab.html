@@ -4,7 +4,7 @@
 <head>
     <title>Jueun Jeon's Blog</title>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta property="og:image" content="uiux/img21/browser1.jpg" />
+    <meta property="og:image"/>
     <meta charset="utf-8"> <!-- able multiple language -->
     <meta name="description"
         content="Hello World! My name is Jueun Jeon, and I am a UI/UX & Web designer from Seoul, Korea.">
@@ -12,7 +12,7 @@
         content="Jueun Jeon, graphic design, design, UI/UX, ui/ux, design identity, illust, brand design, brand, editorial design, portfolio, RISD, Korea University">
     <meta name="author" content="Jueun Jeon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="favicon_blue.jpg" type="image/x-icon">
+    <link rel="icon" href="favicon.jpg" type="image/x-icon">
     <link rel="apple-touch-icon" href="favicon_blue.jpg" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="index.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -48,71 +48,110 @@
     <div style="height:48px;"></div>
     <section>
         <div class="grid-index">
-            <h2 class="grid-box">Arduino Lab - Blink</h2>
+            <h2 class="grid-box">Arduino Lab - Sound</h2>
             <div class="grid-box">
                 <p>
-                    For the blink practice I followed the instruction on the book and had not too much trouble in understanding.
+                    Changing the volume of sound using variables & creating different notes.
                 </p><br>
-                <img src="week2_lab/blink.gif">
-            </div>
-            <h2 class="grid-box">Arduino Lab - Potentiometer</h2>
-            <div class="grid-box">
-                <p>
-                    During the practice I realized I was not familiar with Analog concept and need for variable. (And I was still confused whether it’s C or JS). At first thought it was not working, but later figured out sensor controls the delayValue on the code. Later when I tried differently by connecting to digital input instead, it didn't work.
-                </p><br>
-                <img src="week2_lab/dial.gif">
+                <img src="lab_1.jpeg">
                 <pre>
-int sensorPin = A0;    // The potentiometer is connected to analog pin 0                  
-int ledPin = 13;      // The LED is connected to digital pin 13
-int sensorValue;    //We declare another integer variable to store the value of the potentiometer
+int speakerPin = 10;               //the pin that buzzer is connected to
 
-void setup() // this function runs once when the sketch starts up
+void setup()
 {
-    pinMode(ledPin, OUTPUT);
+    pinMode(speakerPin, OUTPUT);    //set the output pin for the speaker
 }
 
-void loop() // this function runs repeatedly after setup() finishes
+void loop()
 {
-    sensorValue = analogRead(sensorPin);    
 
-    digitalWrite(ledPin, HIGH);     // Turn the LED on
-    delay(sensorValue);             // Pause for sensorValue in milliseconds
-    digitalWrite(ledPin, LOW);      // Turn the LED off
-    delay(sensorValue);             // Pause for sensorValue in milliseconds
+    play('g', 2);       //ha
+    play('g', 1);       //ppy
+    play('a', 4);       //birth
+    play('g', 4);       //day
+    play('C', 4);       //to
+    play('b', 4);       //you
+
+    play(' ', 2);       //pause for 2 beats
+
+    play('g', 2);       //ha
+    play('g', 1);       //ppy
+    play('a', 4);       //birth
+    play('g', 4);       //day
+    play('D', 4);       //to
+    play('C', 4);       //you
+
+    play(' ', 2);       //pause for 2 beats
+
+    play('g', 2);       //ha
+    play('g', 1);       //ppy
+    play('G', 4);       //birth
+    play('E', 4);       //day
+    play('C', 4);       //dear
+    play('b', 4);       //your
+    play('a', 6);       //name
+
+    play(' ', 2);       //pause for 2 beats
+
+    play('F', 2);       //ha
+    play('F', 1);       //ppy
+    play('E', 4);       //birth
+    play('C', 4);       //day
+    play('D', 4);       //to
+    play('C', 6);       //you
+
+    while (true) {}     //get stuck in this loop forever so that the song only plays once
 }
+
+
+void play( char note, int beats)
+{
+    int numNotes = 14;  // number of notes in our note and frequency array (there are 15 values, but arrays start at 0)
+
+    //Note: these notes are C major (there are no sharps or flats)
+
+    //this array is used to look up the notes
+    char notes[] = { 'c', 'd', 'e', 'f', 'g', 'a', 'b', 'C', 'D', 'E', 'F', 'G', 'A', 'B', ' '};
+    //this array matches frequencies with each letter (e.g. the 4th note is 'f', the 4th frequency is 175)
+    int frequencies[] = {131, 147, 165, 175, 196, 220, 247, 262, 294, 330, 349, 392, 440, 494, 0};
+
+    int currentFrequency = 0;    //the frequency that we find when we look up a frequency in the arrays
+    int beatLength = 150;   //the length of one beat (changing this will speed up or slow down the tempo of the song)
+
+    //look up the frequency that corresponds to the note
+    for (int i = 0; i < numNotes; i++)  // check each value in notes from 0 to 14
+    {
+    if (notes[i] == note)             // does the letter passed to the play function match the letter in the array?
+    {
+        currentFrequency = frequencies[i];   // Yes! Set the current frequency to match that note
+    }
+    }
+
+    //play the frequency that matched our letter for the number of beats passed to the play function
+    tone(speakerPin, currentFrequency, beats * beatLength);
+    delay(beats * beatLength);  //wait for the length of the tone so that it has time to play
+    delay(50);                  //a little delay between the notes makes the song sound more natural
+
+}
+
+/* CHART OF FREQUENCIES FOR NOTES IN C MAJOR
+    Note      Frequency (Hz)
+    c        131
+    d        147
+    e        165
+    f        175
+    g        196
+    a        220
+    b        247
+    C        262
+    D        294
+    E        330
+    F        349
+    G        392
+    A        440
+    B        494
+*/                    
                 </pre>
-            </div>
-            <h2 class="grid-box">Arduino Lab - Variable Resistor Censorss</h2>
-            <div>
-                <p>
-                    Through this practice, I tried to have more understanding on censors, variable resistors and how to use multimeter as well. I made the setup referencing the guide on the github page, however, failed to do this practice. I tried heat sensor for the test and 
-                    but did not got any result on change of resistor and volt.
-                </p><br>
-                <h6>Resist Change</h6>
-                <div class="grid-flex" style="width:100%;">
-                    <div class="grid-box"><img src="week2_lab/heat_resist.JPG"></div>
-                    <div class="grid-box"><img src="week2_lab/heat_resist_change.JPG"></div>
-                </div>
-                <h6>Volt Change</h6>
-                <div class="grid-flex">
-                    <div class="grid-box"><img src="week2_lab/heat_volt.JPG"></div>
-                    <div class="grid-box"><img src="week2_lab/heat_volt_change.JPG"></div>
-                </div><br>
-                <p>
-                    I also tried using the potentiometer I previously used, which did not work as well.
-                </p><br>
-                <h6>Resist Change</h6>
-                <div class="grid-flex" style="width:100%;">
-                    <div class="grid-box"><img src="week2_lab/dial_resist.JPG"></div>
-                    <div class="grid-box"><img src="week2_lab/dial_resist_after.JPG"></div>
-                </div>
-                <h6>Volt Change</h6>
-                <div class="grid-flex">
-                    <div class="grid-box"><img src="week2_lab/dial_volt.JPG"></div>
-                    <div class="grid-box"><img src="week2_lab/dial_volt_after.JPG"></div>
-                </div><br>
-                <h6>Conclusion</h6>
-                <p>For this practice I did not succeed on seeing the result on the multimeter. That being said, I made myself more familiar with multimeter. I believe another trial with pressure sensor would be helpful for the better understanding of this concept.</p>
             </div>
         </div>
     </section>
