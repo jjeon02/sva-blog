@@ -323,6 +323,90 @@ void setup() {
             <h1>Sound or Movement</h1>
             <caption>Team: Clear Shen, Jueun Jeon, Amogh Gharpure</caption>
             <p class="center">///// Work in Progress //////</p>
+            <div class="grid-index">
+                <h2 class="grid-box">Ideation</h2>
+                <div class="grid-box">
+                    <h6>Doomsday Clock</h6>
+                    <p>
+                        The doomsday clock shows the time left till doom. But with our action - covering the photoresistor with our hand - it can stop the clock ticking and stop doomsday. For this ideation we decided to use motor, buzzer and photoresistor.
+                    </p>
+                </div>
+                <div class="grid-box">
+                    <h6>SCHEMATIC (CIRCUIT DIAGRAM)</h6>
+                    <p>
+                        The doomsday clock shows the time left till doom. But with our action - covering the photoresistor with our hand - it can stop the clock ticking and stop doomsday. For this ideation we decided to use motor, buzzer and photoresistor.
+                    </p>
+                </div>
+                <div class="grid-box">
+                    <h6>Attempt 1 - Servo Motor and Light</h6>
+                    <p>
+                        Our attempt on connecting servo motor and photoresistor was successful. However, we couldn’t get the 360 degree turn using this motor, so we changed to other motor. 
+                    </p>
+                </div>
+                <h2 class="grid-box">Final Attempt</h2>
+                <div class="grid-box">
+                    <p>
+                        It turned out tone function specific pins - which were 3 and 11, and we changed the pin number 11 to 6. After the update on the code as well, both motor and buzzer started working.
+                    </p> <br>
+                    <h6>Code</h6>
+                    <pre>
+#include <Servo.h>          
+
+const int AIN1 = 13;           
+const int AIN2 = 12;           
+const int PWMA = 6;           
+
+int motorSpeed = 100;       
+const int buzzerPin = 7;
+
+void setup() {
+    pinMode(AIN1, OUTPUT);
+    pinMode(AIN2, OUTPUT);
+    pinMode(PWMA, OUTPUT);
+
+    Serial.begin(9600);
+    pinMode(buzzerPin, OUTPUT);                    
+}
+
+void loop() {
+
+    int brightness = analogRead(A0);
+    Serial.println(brightness);
+
+    float motorSpeed = map(brightness, 300, 900, 10, 50);
+    float frequency = map(brightness, 300, 900, 100, 2000);
+    int speed = map(brightness, 300,900,3000,100);
+    if (brightness < 300) {
+        noTone(buzzerPin);
+    }
+    tone(buzzerPin,frequency, 10);
+    delay(speed);
+    
+    spinMotor(motorSpeed);
+}
+
+void spinMotor(int motorSpeed)                       
+{
+    if (motorSpeed > 0)                              
+    {
+    digitalWrite(AIN1, HIGH);                        
+    digitalWrite(AIN2, LOW);                         
+    }
+    else if (motorSpeed < 0)                         
+    {
+    digitalWrite(AIN1, LOW);                         
+    digitalWrite(AIN2, HIGH);                        
+    }
+    else                                             
+    {
+    digitalWrite(AIN1, LOW);                         
+    digitalWrite(AIN2, LOW);                         
+    }
+    analogWrite(PWMA, abs(motorSpeed));            
+}
+                    </pre>
+                </div>
+            </div>
         </details>
     </section>
 
