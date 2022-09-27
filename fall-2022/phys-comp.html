@@ -331,14 +331,13 @@ void setup() {
                         The doomsday clock shows the time left till doom. But with our action - covering the photoresistor with our hand - it can stop the clock ticking and stop doomsday. For this ideation we decided to use motor, buzzer and photoresistor.
                     </p>
                 </div>
+                <h2 class="grid-box">SCHEMATIC (CIRCUIT DIAGRAM)</h2>
                 <div class="grid-box">
-                    <h6>SCHEMATIC (CIRCUIT DIAGRAM)</h6>
                     <p>
-                        The doomsday clock shows the time left till doom. But with our action - covering the photoresistor with our hand - it can stop the clock ticking and stop doomsday. For this ideation we decided to use motor, buzzer and photoresistor.
                     </p>
                 </div>
+                <h2 class="grid-box">Attempt 1 - Servo Motor and Light</h2>
                 <div class="grid-box">
-                    <h6>Attempt 1 - Servo Motor and Light</h6>
                     <p>
                         Our attempt on connecting servo motor and photoresistor was successful. However, we couldn’t get the 360 degree turn using this motor, so we changed to other motor. 
                     </p>
@@ -346,7 +345,7 @@ void setup() {
                 <h2 class="grid-box">Final Attempt</h2>
                 <div class="grid-box">
                     <p>
-                        It turned out tone function specific pins - which were 3 and 11, and we changed the pin number 11 to 6. After the update on the code as well, both motor and buzzer started working.
+                        It turned out tone function interferes with specific pins - 3 and 11, so we changed the pin number 11 to 6. After the update on the code as well, both motor and buzzer started working.
                     </p> <br>
                     <h6>Code</h6>
                     <pre>
@@ -405,7 +404,9 @@ void spinMotor(int motorSpeed)
     analogWrite(PWMA, abs(motorSpeed));            
 }
                     </pre>
+                <!-- GRID-BOX -->
                 </div>
+            <!-- GRID-INDEX -->
             </div>
         </details>
     </section>
