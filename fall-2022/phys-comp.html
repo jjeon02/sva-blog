@@ -200,11 +200,11 @@
         <!-- WEEK 2 -->
         <details>
             <summary>&nbsp;Week 2: Improvement on Switch Using Arduino</summary>
-            <div class="divider"></div>
-            <h6 style="margin-bottom:12px;"><a href="phys-comp/week2/arduino-lab.html">Arduino Lab Practice</a></h6>
             <img src="phys-comp/week2/final_shot.jpg">
             <h1>Improvement on Switch Using Arduino - Teamwork</h1>
             <caption>Team: Jueun Jeon, Sunwoo Park, Yuri Kim</caption>
+            <div class="divider"></div>
+            <h6 style="margin-bottom:12px;"><a href="phys-comp/week2/arduino-lab.html">Arduino Lab Practice</a></h6>
             <!-- 1 -->
             <div class="grid-index">
                 <h2 class="grid-box">Previous Work</h2>
@@ -318,35 +318,86 @@ void setup() {
         </details>
         <details>
             <summary>&nbsp;Week 3: Sound or Movement</summary>
-            <div class="divider"></div>
-            <h6 style="margin-bottom:12px;"><a href="phys-comp/week3/arduino-lab.html">Arduino Lab Practice</a></h6>
             <h1>Sound or Movement</h1>
             <caption>Team: Clear Shen, Jueun Jeon, Amogh Gharpure</caption>
-            <p class="center">///// Work in Progress //////</p>
+            <div class="divider"></div>
+            <p>
+                After learning about how to use a buzzer and a photoresistor in class, we are asked to create a simple application with either sound or movement as an output.
+            </p>
+            <h6 style="margin-bottom:12px;"><a href="phys-comp/week3/arduino-lab.html">Arduino Lab Practice</a></h6>
             <div class="grid-index">
-                <h2 class="grid-box">Ideation</h2>
+                <h2 class="grid-box">Concept - Doomsday clock </h2>
                 <div class="grid-box">
-                    <h6>Doomsday Clock</h6>
                     <p>
-                        The doomsday clock shows the time left till doom. But with our action - covering the photoresistor with our hand - it can stop the clock ticking and stop doomsday. For this ideation we decided to use motor, buzzer and photoresistor.
+                        The doomsday clock shows the time left till doom. But with our action - covering the small piece of nature (with photoresistor inside) with our hand - it can stop the clock ticking and eventually stop doomsday. For this ideation, we decided to use a motor, buzzer, and photoresistor.
                     </p>
                 </div>
-                <h2 class="grid-box">SCHEMATIC (CIRCUIT DIAGRAM)</h2>
+                <h2 class="grid-box">Attempts</h2>
                 <div class="grid-box">
+                    <!-- ATTEMPT 1 -->
+                    <div class="grid-flex">
+                        <div class="grid-box">
+                            <h6>Attempt 1 - Servo Motor and Light</h6>
+                            <p>
+                                Our attempt on connecting the servo motor and photoresistor was successful. However, we couldn’t get the 360-degree turn using this motor, so we changed to another motor. 
+                            </p>
+                        </div>
+                        <div class="grid-box">
+                            <img src = "phys-comp/week3/servo_motor_light.gif">
+                        </div>
+                    </div>
+                    <!-- ATTEMPT 2 -->
+                    <br>
+                    <h6>Attempt 2 - Motor with Switch</h6>
                     <p>
-                    </p>
+                        When we tried to run the motor with the switch and it turned out successful. However, the code we applied only worked when we put speed on the terminal. We later changed it so that it works purely with the switch.
+                    </p><br>
+                    <img src = "phys-comp/week3/motor_switch.jpg" style="width:100%;">
+                    <!-- ATTEMPT 3 -->
+                    <div class="grid-flex" style="margin: 36px 0 0 0;">
+                        <div class="grid-box">
+                            <h6>Attempt 3 - Light sensor and Motor</h6>
+                            <p>
+                                We connected the motor to the light sensor with the revised code, and we were able to make the speed of the motor sensitive to the light. When we covered it with our hands, the motor slowed down and eventually stopped. Now it was time to connect. 
+                            </p>
+                        </div>
+                        <div class="grid-box">
+                            <video controls> 
+                                <source src="phys-comp/week3/motor_light.mp4" type="video/mp4">
+                              Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                    <!-- ATTEMPT 4 -->
+                    <br>
+                    <h6>Attempt 4 - Light sensor + Motor + Buzzer</h6>
+                    <p>
+                        The buzzer was later added to create a sound similar to a clock, but the motor was not working when the buzzer was connected.
+                    </p><br>
+                    <!-- ATTEMPT 5 -->
+                    <div class="grid-flex" style="margin: 36px 0 0 0;">
+                        <div class="grid-box">
+                            <h6>Attempt 5 - Final</h6>
+                            <p>
+                                It turned out the TONE function interferes with specific pins - 3 and 11, so we changed the pin number 11 to 6. After the update on the code as well, both motor and buzzer started working. After we succeed in this, we moved on to creating a prototype.
+                            </p>
+                        </div>
+                        <div class="grid-box">
+                            <video controls> 
+                                <source src="phys-comp/week3/buzzer_motor_light.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
                 </div>
-                <h2 class="grid-box">Attempt 1 - Servo Motor and Light</h2>
+                <h2 class="grid-box">Final Result</h2>
                 <div class="grid-box">
-                    <p>
-                        Our attempt on connecting servo motor and photoresistor was successful. However, we couldn’t get the 360 degree turn using this motor, so we changed to other motor. 
-                    </p>
-                </div>
-                <h2 class="grid-box">Final Attempt</h2>
-                <div class="grid-box">
-                    <p>
-                        It turned out tone function interferes with specific pins - 3 and 11, so we changed the pin number 11 to 6. After the update on the code as well, both motor and buzzer started working.
-                    </p> <br>
+                    <img src="phys-comp/week3/clock.jpeg" style="margin: 0 0 12px 0">
+                    <video style="margin: 0 0 12px 0" controls> 
+                        <source src="phys-comp/week3/buzzer_motor_light.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video> 
+                    <p>We ensured that the photoresistor was in an accessible position for the user to cover it and make the circuit work. </p> <br>
                     <h6>Code</h6>
                     <pre>
 #include <Servo.h>          
@@ -403,10 +454,21 @@ void spinMotor(int motorSpeed)
     }
     analogWrite(PWMA, abs(motorSpeed));            
 }
-                    </pre>
-                <!-- GRID-BOX -->
+                    </pre> 
+                    <br>
+                    <h6 style="margin: 0 0 12px 0">Electrical schematic diagram</h6>
+                    <img src="phys-comp/week3/circuit.jpg">
                 </div>
-            <!-- GRID-INDEX -->
+            </div>
+            <div class="grid-index">
+                <h2 class="grid-box">Scope of improvement</h2>
+                <p class="grid-box">
+                    When we were testing the prototype, there was a slight delay in restarting both the buzzer and motor, which we have not figured out yet. When we increase the frequency of the buzzer, the delay disappeared. We thought that it has something to do with speed and frequency.
+                </p>
+                <h2 class="grid-box">Conclusion & Takeaways</h2>
+                <p class="grid-box">
+                    When trying to debug, we first examined all the connections on the breadboard and then the code. After we found no apparent errors, we thought that it was because the power supply was not strong enough. However, we tested a few methods to increase the power and it was still not working. Eventually, we found out through Google that only certain ports can be used for the motor. Our conclusion is that it’s helpful to switch perspectives when one debugging direction is not working out.
+                </p>
             </div>
         </details>
     </section>
