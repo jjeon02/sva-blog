@@ -149,7 +149,7 @@ pre::-webkit-scrollbar-track {outline:none;background-color: #ddd;border-radius:
 .nav-wrapper{
     position:fixed;margin:0;padding:0;top:0;
     width:100%;
-    height:46px;
+    height:42px;
     color: var(--text);
     background: var(--background);
     border-bottom: 1px solid var(--line);
@@ -157,7 +157,7 @@ pre::-webkit-scrollbar-track {outline:none;background-color: #ddd;border-radius:
     overflow:hidden;
 }
 
-.nav-container{width:100%;height:46px;display:block;margin:0 auto;}
+.nav-container{width:100%;height:42px;display:block;margin:0 auto;}
 
 .nav-container > h6, .nav-container > ul{
     display:inline-block;
@@ -165,7 +165,7 @@ pre::-webkit-scrollbar-track {outline:none;background-color: #ddd;border-radius:
     right:0;
 }
 
-.nav-container >h6{ padding: 6px 8px;}
+.nav-container >h6{ padding: 4px 8px;}
 .nav-container >ul{float:right;list-style: none;}
 .nav-container >ul>li{
     display:inline-block;
@@ -197,12 +197,12 @@ pre::-webkit-scrollbar-track {outline:none;background-color: #ddd;border-radius:
         z-index:5;transform:translateX(100vw);
     }
     .nav-container > ul{display:none;}
-    .nav-container > h6{padding: 6px 12px;}
+    .nav-container >h6{ padding: 4px 20px;}
     .nav-button{
         display:inline-block;
         outline:none;
         background:none;
-        padding: 6px 12px;
+        padding: 4px 20px;
     }
 }
 
@@ -232,7 +232,7 @@ pre::-webkit-scrollbar-track {outline:none;background-color: #ddd;border-radius:
     position: absolute;
     text-align:right;
     top:0; right:0;
-    padding: 6px 12px;
+    padding: 6px 20px;
     color: var(--text);
 }
 
