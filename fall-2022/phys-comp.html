@@ -486,11 +486,47 @@ void spinMotor(int motorSpeed)
                     <p>
                         FSRs are basically a resistor that changes its resistive value (in ohms Ω) depending on how much it is pressed. These sensors are fairly low cost, and easy to use but they're rarely accurate. When you use FSRs you should only expect to get ranges of response. 
                     </p><br>
+                    <h6>FSR circuit example</h6>
+                    <img src="phys-comp/week4/sensor-fsr.png">
+                    <pre>
+var five = require("johnny-five"),
+fsr, led;
+
+(new five.Board()).on("ready", function() {
+
+// Create a new `fsr` hardware instance.
+fsr = new five.Sensor({
+    pin: "A0",
+    freq: 25
+});
+
+led = new five.Led(9);
+
+// Scale the sensor's value to the LED's brightness range
+fsr.scale([0, 255]).on("data", function() {
+
+    // set the led's brightness based on force
+    // applied to force sensitive resistor
+
+    led.brightness(this.scaled);
+});
+});
+
+                    </pre>
+                    <br>
                     <ul>
                         <li>Size: 1/2" (12.5mm) diameter active area by 0.02" thick (Interlink does have some that are as large as 1.5"x1.5")</li>
                         <li>Resistance range: Infinite/open circuit (no pressure), 100KΩ (light pressure) to 200Ω (max. pressure)</li>
                         <li>Force range: 0 to 20 lb. (0 to 100 Newtons) applied evenly over the 0.125 sq in surface area</li>
                         <li>Power supply:  Uses less than 1mA of current (depends on any pullup/down resistors used and supply voltage)</li>
+                    </ul><br>
+                    <h6>How can I use this?</h6>
+                    <ul>
+                        <li>Put down a random object to trigger the sensor</li>
+                        <li>Project that is useful with multiple variables</li>
+                        <li>Multiple ways to create pressure - weight? strength?</li>
+                        <li>Motivation for using: how can I make user to give pressure to this sensor?</li>
+                        <li>Output: light, sound, other movement, etc</li>
                     </ul>
                     <p><a href="https://learn.adafruit.com/force-sensitive-resistor-fsr/example-projects" target="_blank">Project Example</a></p>
                 </div>
