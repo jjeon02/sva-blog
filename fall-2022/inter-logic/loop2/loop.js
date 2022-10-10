@@ -3,22 +3,27 @@ var d
 var x 
 var y
 let rSlider, gSlider, bSlider;
+var saveImageBtn
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  rSlider = createSlider(0, 255, 100);
+
+  rSlider = createSlider(0, 255, 0);
   rSlider.position(20, 20);
   gSlider = createSlider(0, 255, 0);
   gSlider.position(20, 50);
-  bSlider = createSlider(0, 255, 255);
+  bSlider = createSlider(0, 255, 0);
   bSlider.position(20, 80);
+
+  background(0,0,0)
 }
 
+
 function draw() {
-  background(25,25,25);
-  const r = rSlider.value();
-  const g = gSlider.value();
-  const b = bSlider.value();
+
+  const rCol = rSlider.value();
+  const gCol = gSlider.value();
+  const bCol = bSlider.value();
   
   noStroke()
   for (var i = 0; i < 100; i++){
@@ -26,9 +31,10 @@ function draw() {
       d = 100
       x = i*d
       y = j*d
-      // var r = map(i,0, 8, 0, 255)
-      // var g = map(i,0, 8, 255, 0)
-      // var b = map(j,0, 8, 0, 255)
+      
+      r = map(i,0, 8, rCol,0)
+      g = map(j,0, 8, gCol,0)
+      b = map(i,0, 8, 0, bCol)
 
       // fill (r,g,b)
       stroke(255,255,255)
