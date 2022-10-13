@@ -550,10 +550,70 @@ fsr.scale([0, 255]).on("data", function() {
         </details>
         <!-- WEEK 5 -->
         <details>
-            <summary>WEEK 5: Midterm Proposal</summary>
+            <summary>&nbsp;WEEK 5: Midterm Proposal</summary>
             <h1>Midterm Proposal</h1>
             <caption>Jueun Jeon, Clear Shen, Sunwoo Park</caption>
             <p><a href="https://www.notion.so/Midterm-Project-Proposal-c2ebd1580dfe4217b07a1c6e88feffa5" target="_blank">Notion</a></p>
+            <div class="grid-index">
+                <h2 class="grid-box">Concept</h2>
+                <p class="grid-box">
+                    Anyone remember the excitement of sitting in front of the TV and waiting for our favorite show to start? Anyone remember collecting branches and rags to play as the character that we admire as a kid? This project is inspired by that inner child of ours. Time will pass, but emotions stay. We might laugh at our silliness looking back, yet we will always feel reminiscent about how simple things could bring us so much happiness.<br><br>
+                    With those thoughts in mind, we decided to draw inspiration from one of our childhood favorite shows: Card-captor Sakura. By mimicking the signature Sakura gesture, we want to create an interactive project that represents the magic-wand experience to bring our audience a moment of happiness and amazement.<br><br>
+                    The idea is that when the user presses the magic wand on the pressure sensor, magical effects will happen on the screen and give the users a surprise.
+                </p>
+                <h2 class="grid-box">Input and output</h2>
+                <p class="grid-box">The input will be the pressure sensor because the user will use the magic wand to press the sensor and trigger the animation. The output will be a p5.js animation on a laptop screen because this is the end result of the interaction (what the users will see).</p>
+                <h2 class="grid-box">Sketches & Scenario</h2>
+                <div class="grid-box">
+                    <img src="phys-comp/week5/sketch1.JPG">
+                    <img src="phys-comp/week5/sketch2.JPG">
+                    <h6>Scale: wand is 1 foot long.</h6><br>
+                    <img src="phys-comp/week5/circle.PNG">
+                    <p>
+                        
+                        When the participant hit the wand and triggers the pressure sensor, it shows the ‘magic circle’ on the screen using p5.js. The magic circle can be created using loop function, and the sensor can trigger the opacity.
+                    </p>
+                    <p><a href="https://jjeon02.github.io/sva-blog/fall-2022/inter-logic/loop/index.html">Magic Circle</a></p>
+                </div>
+                <h2 class="grid-box">Research Report</h2>
+                <div class="grid-box">
+                    <h6>Pressure Sensor</h6>
+                    <div class="grid-flex">
+                        <p class="grid-box">
+                            FSRs are sensors that allow you to detect physical pressure, squeezing, and weight. They are simple to use and low-cost. The FSR is made of 2 layers separated by a spacer. The more one presses, the more of those Active Element dots touch the semiconductor and that makes the resistance go down.
+                        </p>
+                        <div class="grid-box"><img src="phys-comp/week5/sensor.jpeg"></div>
+                    </div>
+                    <div class="grid-flex">
+                        <p class="grid-box"> FSRs are basically a resistor that changes their resistive value (in ohms Ω) depending on how much it is pressed. These sensors are fairly low-cost and easy to use but they're rarely accurate. When you use FSRs you should only expect to get ranges of response.</p>
+                        <div class="grid-box"><img src="phys-comp/week5/sensor-fsr.png"></div>
+                    </div>
+                    <h6>How To Interface</h6>
+                    <p>The user and the magic wand </p><br>
+                    <h6>Where To Buy</h6>
+                    <p>Amazon, Spark Fun, Digi-key, etc.</p>
+                </div>
+                <h2 class="grid-box">Initial experiment</h2>
+                <div class="grid-box">
+                    <div class="grid-flex">
+                        <div class="grid-box">
+                            <ul>
+                                <li>Sensor + p5.js</li>
+                                <li><a href="https://editor.p5js.org/June96/sketches/T0RELTLMf" target="_blank">Code Test</a></li>
+                            </ul>
+                            <p>
+                                We tested with pressure sensor to see whether its data value can be seen on p5.js screen. Initial test was successful, and our next stage would be implementing physical object (sensor, wand) and animation for p5.js
+                            </p>
+                        </div>
+                        <div class="grid-box">
+                            <video controls> 
+                                <source src="phys-comp/week5/midterm_test.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </details>
     </section>
 
