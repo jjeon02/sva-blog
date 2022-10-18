@@ -6,10 +6,6 @@ let sec;
 let min;
 let hr;
 
-function preload(){
-  matrix = loadImage("skull.jpg");
-}
-
 function setup(){
   createCanvas(windowWidth,windowHeight);
   matrix = createCapture(VIDEO);
@@ -43,8 +39,6 @@ function draw(){
 
       noStroke();
       fill(25,240,30);
-      // fill(avg)
-      // square(i*w, j*h, w);
 
       const len = timeText.length;
       const charIndex = map(avg,0,255,len,0)
@@ -53,7 +47,6 @@ function draw(){
       textAlign(CENTER,CENTER)
       text(timeText.charAt(charIndex), i*w+w*0.5,j*h+h*0.5);
 
-      // text(timeText.length, i*w, j*h);
     }
   }
 }
