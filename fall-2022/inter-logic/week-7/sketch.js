@@ -81,7 +81,7 @@ function scoreNo(){
 function scoreSuccess(){
   fill(0, 200, 250);
   textSize(24);
-  text("You did 100!",10,30);
+  text("You did 20!",10,30);
 }
 
 
