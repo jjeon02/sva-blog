@@ -140,7 +140,7 @@
                         connections using two switches. In conclusion, this problem occurred becauseas we didn’t
                         fully understand the structure of the breadboard.
                     </p><br>
-                    <img src="phys-comp/week1/attempt_final.png">
+                    <img src="phys-comp/week1/attempt_final.jpg">
                     <h6>Final attempt with two switches</h6>
                     <p>
                         Later we found out it was the issuematter of the direction of the current that made the LED
@@ -158,7 +158,7 @@
                     <p>The outcome includes two switches operated by positioning the coin, that lighten up the city.
                     </p>
                 </div>
-                <div class="grid-box"><img src="phys-comp/week1/final_shot.png"></div>
+                <div class="grid-box"><img src="phys-comp/week1/final_shot.jpg"></div>
             </div>
             <img src="phys-comp/week1/final-light-side.gif">
             <!--#7-->
@@ -215,7 +215,7 @@
             <!-- 4 -->
             <div class="grid-index">
                 <h2 class="grid-box">Schematic (circuit diagram)</h2>
-                <div class="grid-box"><img src="phys-comp/week2/schematic.png" class="outline"></div>        
+                <div class="grid-box"><img src="phys-comp/week2/schematic.jpg" class="outline"></div>        
             </div>
             <!-- 5 -->
             <div class="grid-index">
@@ -464,7 +464,7 @@ void spinMotor(int motorSpeed)
                         FSRs are basically a resistor that changes its resistive value (in ohms Ω) depending on how much it is pressed. These sensors are fairly low cost, and easy to use but they're rarely accurate. When you use FSRs you should only expect to get ranges of response. 
                     </p><br>
                     <h6>FSR circuit example</h6>
-                    <img src="phys-comp/week4/sensor-fsr.png">
+                    <img src="phys-comp/week4/sensor-fsr.jpg">
                     <pre>
 var five = require("johnny-five"),
 fsr, led;
@@ -512,14 +512,14 @@ fsr.scale([0, 255]).on("data", function() {
                     <h6>Media Art?</h6>
                     <img src="phys-comp/week4/charger.jpg">
                     <p>This magic circle charger is still currently in my Amazon shopping list. But what if I make one for myself to feel like anime magic girl?</p><br>
-                    <img src="phys-comp/week4/wireless.png">
+                    <img src="phys-comp/week4/wireless.jpg">
                     <p>
                         Most wireless chargers use magnetic induction and magnetic resonance. They offer the promise of being able to place a device on a surface  and have it charge automatically—no fiddling with cables required.<br><br>
                         Wireless charging isn’t truly wireless, of course. Your phone, smart watch, tablet, wireless headphones, or other device doesn’t need to be plugged into the charger with a wire, but the wireless charger itself still has to be plugged into a wall outlet to function.
                     </p><br>
                     <img src="phys-comp/week4/car.jpg">
                     <p>Despite it's downside, it still can be useful in specific cases.</p><br>
-                    <img src="phys-comp/week4/charging_case.png">
+                    <img src="phys-comp/week4/charging_case.jpg">
                     <p>
                         Wireless chargers typically use magnetic induction. The short explanation is that they use magnetism to transmit energy. First, you place the device–like a smartphone—on the wireless charger. The current coming from the wall power outlet moves through the wire in the wireless charger, creating a magnetic field. The magnetic field creates a current in the coil inside the device sitting on the wireless charger. This magnetic energy is converted to electrical energy, which is used to charge the battery. Devices must have the appropriate hardware in them to support wireless charging—a device without the necessary coil can’t charge wirelessly.
                     </p>
@@ -528,29 +528,42 @@ fsr.scale([0, 255]).on("data", function() {
                 </div>
             </div>
         </details>
-        <!-- WEEK 5 -->
+        <!-- MIDTERM -->
         <details>
-            <summary>&nbsp;WEEK 5: Midterm Proposal</summary>
+            <summary>&nbsp;Midterm: ✨ Magic Girl Wand ✨</summary>
             <h1>Midterm Proposal</h1>
             <caption>Jueun Jeon, Clear Shen, Sunwoo Park</caption>
             <p><a href="https://www.notion.so/Midterm-Project-Proposal-c2ebd1580dfe4217b07a1c6e88feffa5" target="_blank">Notion</a></p>
             <div class="grid-index">
                 <h2 class="grid-box">Concept</h2>
                 <p class="grid-box">
-                    Anyone remember the excitement of sitting in front of the TV and waiting for our favorite show to start? Anyone remember collecting branches and rags to play as the character that we admire as a kid? This project is inspired by that inner child of ours. Time will pass, but emotions stay. We might laugh at our silliness looking back, yet we will always feel reminiscent about how simple things could bring us so much happiness.<br><br>
-                    With those thoughts in mind, we decided to draw inspiration from one of our childhood favorite shows: Card-captor Sakura. By mimicking the signature Sakura gesture, we want to create an interactive project that represents the magic-wand experience to bring our audience a moment of happiness and amazement.<br><br>
-                    The idea is that when the user presses the magic wand on the pressure sensor, magical effects will happen on the screen and give the users a surprise.
+                    Does anyone remember the excitement of sitting in front of the TV and waiting for our favorite show to start? Does anyone remember collecting branches and rags to play as the character that we admired as kids? This project is inspired by that inner child of ours. Time will pass, but emotions stay. Looking back, we might laugh at our silliness, yet we will always feel reminiscent about how simple things could bring us so much happiness.
+                    <br><br>
+                    With those thoughts in mind, we drew inspiration from one of our childhood favorite shows: Card-captor Sakura. By mimicking the signature Sakura gesture, we want to create an interactive project that represents the magic-wand experience to bring our audience a moment of happiness and amazement. 
+                    <br><br>
+                    The idea is that when the user waves the magic wand, magical effects will happen on the screen and surprise the users.
                 </p>
                 <h2 class="grid-box">Input and output</h2>
-                <p class="grid-box">The input will be the pressure sensor because the user will use the magic wand to press the sensor and trigger the animation. The output will be a p5.js animation on a laptop screen because this is the end result of the interaction (what the users will see).</p>
+                <div class="grid-box">
+                    <h6>First Plan</h6>
+                    <p>
+                        The input will be the pressure sensor because the user will use the magic wand to press the sensor and trigger the animation. The output will be a p5.js animation on a laptop screen because this results from the interaction (what the users will see).
+                    </p><br>
+                    <h6>Revised</h6>
+                    <p>We decided to change the FSR sensor to an accelerometer that can detect x,y,z axis in space. Thus, the input will be the accelerometer value, and the output will be the moving 3D graphic on p5.js.</p>
+                </div>
                 <h2 class="grid-box">Sketches & Scenario</h2>
                 <div class="grid-box">
-                    <img src="phys-comp/week5/sketch1.JPG">
-                    <img src="phys-comp/week5/sketch2.JPG">
+                    <div class="grid-flex">
+                        <div class="grid-box"><img src="phys-comp/midterm/sketch1.JPG"></div>
+                        <div class="grid-box"><img src="phys-comp/midterm/sketch2.JPG"></div>
+                    </div>
                     <h6>Scale: wand is 1 foot long.</h6><br>
-                    <img src="phys-comp/week5/circle.PNG">
+                    <div class="grid-flex">
+                        <div class="grid-box"><img src="phys-comp/midterm/circle.jpg"></div>
+                        <div class="grid-box"><img src="phys-comp/midterm/dog.jpg"></div>
+                    </div>
                     <p>
-                        
                         When the participant hit the wand and triggers the pressure sensor, it shows the ‘magic circle’ on the screen using p5.js. The magic circle can be created using loop function, and the sensor can trigger the opacity.
                     </p>
                     <p><a href="https://jjeon02.github.io/sva-blog/fall-2022/inter-logic/loop/index.html">Magic Circle</a></p>
@@ -561,17 +574,11 @@ fsr.scale([0, 255]).on("data", function() {
                     <div class="grid-flex">
                         <p class="grid-box">
                             FSRs are sensors that allow you to detect physical pressure, squeezing, and weight. They are simple to use and low-cost. The FSR is made of 2 layers separated by a spacer. The more one presses, the more of those Active Element dots touch the semiconductor and that makes the resistance go down.
+                            <br><br>
+                            FSRs are basically resistors that change their resistive value (in ohms Ω) depending on how much they are pressed. These sensors are fairly low-cost and easy to use but rarely accurate. When you use FSRs, you should only expect to get a range of responses.
                         </p>
-                        <div class="grid-box"><img src="phys-comp/week5/sensor.jpeg"></div>
+                        <div class="grid-box"><img src="phys-comp/midterm/sensor.jpeg"><img src="phys-comp/midterm/sensor-fsr.jpg"></div>
                     </div>
-                    <div class="grid-flex">
-                        <p class="grid-box"> FSRs are basically a resistor that changes their resistive value (in ohms Ω) depending on how much it is pressed. These sensors are fairly low-cost and easy to use but they're rarely accurate. When you use FSRs you should only expect to get ranges of response.</p>
-                        <div class="grid-box"><img src="phys-comp/week5/sensor-fsr.png"></div>
-                    </div>
-                    <h6>How To Interface</h6>
-                    <p>The user and the magic wand </p><br>
-                    <h6>Where To Buy</h6>
-                    <p>Amazon, Spark Fun, Digi-key, etc.</p>
                 </div>
                 <h2 class="grid-box">Initial experiment</h2>
                 <div class="grid-box">
@@ -582,23 +589,259 @@ fsr.scale([0, 255]).on("data", function() {
                                 <li><a href="https://editor.p5js.org/June96/sketches/T0RELTLMf" target="_blank">Code Test</a></li>
                             </ul>
                             <p>
-                                We tested with pressure sensor to see whether its data value can be seen on p5.js screen. Initial test was successful, and our next stage would be implementing physical object (sensor, wand) and animation for p5.js
+                                We tested with a pressure sensor to see whether its data value could be seen on the p5.js screen. The initial test was successful, and our next stage would be implementing physical objects (sensor, wand) and animation for p5.js
                             </p>
                         </div>
                         <div class="grid-box">
-                            <video controls> 
-                                <source src="phys-comp/week5/midterm_test.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
+                            <img src="phys-comp/midterm/fsr_test.gif">
                         </div>
                     </div>
                 </div>
             </div>
+            <!--MIDTERM PROCESS-->
+            <h1>Midterm Process</h1>
+            <p>After the class, we decided to use a sensor that can actually detect the x,y,z axis that can be attached to the wand itself. We decided not to use the pressure sensor, but instead figured out what other sensor we could use.</p>
+            <div class="grid-index">
+                <h2 class="grid-box">Failed attempt: Nano Board</h2>
+                <p class="grid-box">
+                    We attempted to use the Arduino Nano, but it wasn’t receiving any variables from the sensor, and the Arduino program had trouble recognizing the board. After several tests, we moved to another sensor.
+                </p>
+                <h2 class="grid-box">New Sensor: Accelerometer</h2>
+                <div class="grid-box">
+                    <div class="grid-flex">
+                        <p class="grid-box">
+                            We were able to use an accelerometer and succeeded in getting x,y, and z axis variables from the Arduino program. For the p5.js output, we added for-loop-animation on the background and a 3D object that can be adjusted by the sensor. After a few tests, we succeeded in making p5.js output but couldn’t figure out how to connect them with sensor input.
+                        </p>
+                        <div class="grid-box"><img src="phys-comp/midterm/accelerometer_1.jpg"></div>
+                    </div>
+                </div>
+                <h2 class="grid-box">Failed attempt: Handshake</h2>
+                <p class="grid-box">
+                    For some reason, handshake wasn’t working for our code (the accelerometer was not sending values to p5). It worked after we removed the handshake part in Arduino and p5. 
+                </p>
+                <h2 class="grid-box">3D motion test</h2>
+                <div class="grid-box">
+                    <div class="grid-flex">
+                        <p class="grid-box">
+                            Our code was supposed to send three values to p5, but we didn’t fully understand the process and kept trying to send only one value. This was a prior failure while connecting the Arduino and p5. <br><br>
+                            With Eric and Viola’s help, we made a 3D object interact with the accelerometer. After setting up the accelerometer, uploading Arduino code, and setting up p5.js, we tested whether it works.
+                        </p>
+                        <div class="grid-box"><img src="phys-comp/midterm/3d.gif"></div>
+                    </div>
+                    <br>
+                    <h6>Code</h6>
+                    <pre>
+    const int groundpin = 18;             // analog input pin 4 -- ground
+    
+    const int powerpin = 19;              // analog input pin 5 -- voltage
+    
+    const int xpin = A3;                  // x-axis of the accelerometer
+    
+    const int ypin = A2;                  // y-axis
+    
+    const int zpin = A1;  
+    
+    int x;
+    int y;
+    int z;
+    
+    int incomingByte; 
+    
+    void setup() {
+    
+        Serial.begin(9600);
+    
+        pinMode(groundpin, OUTPUT);
+        pinMode(powerpin, OUTPUT);
+        digitalWrite(groundpin, LOW);
+        digitalWrite(powerpin, HIGH);
+        
+    }
+    
+    void loop() {
+        x = analogRead(xpin);
+        y = analogRead(ypin);
+        z = analogRead(zpin);
+    
+        incomingByte = Serial.read();
+    
+        Serial.print(analogRead(xpin));
+        Serial.print(", ");
+        Serial.print(analogRead(ypin));
+        Serial.print(", ");
+        Serial.println(analogRead(zpin));
+    
+        delay(100);
+    }
+                    </pre>
+                    <pre>
+                        var widthSplit 
+    var heightSplit
+    var music;
+    let serial;
+    let portName = '/dev/tty.usbserial-1130'; 
+    let inData;
+    
+    let magicX = 0;
+    let magicY = 0; 
+    let magicZ = 0;
+    let ghostModel;
+    
+    function preload(){
+        music= loadSound('ghost_choir.mp3');
+        textureImage=loadImage('ghost.jpg');
+        ghostModel= loadModel('Ghost.obj');
+    }
+    
+    function setup() {
+        createCanvas(windowWidth, windowHeight,WEBGL);
+        noStroke();
+        music.play();
+        
+        serial = new p5.SerialPort();       // make a new instance of the serialport library
+        serial.on('list', printList);  // callback to list all the ports
+        serial.on('connected', serverConnected); // callback for connecting to server
+        serial.on('open', portOpen);        // callback to check port opening
+        serial.on('data', serialEvent);     // callback for when new data arrives
+        serial.on('error', serialError);    // callback for errors
+        serial.on('close', portClose);      // callback for the port closing
+        
+        serial.list();                      // list the serial ports
+        serial.open(portName);    
+        
+    }
+    
+    function draw() {
+        background(0);
+        stroke(255)
+        
+        rectMove()
+        angleMode(DEGREES);
+        rectMode(CENTER);
+        
+    
+        translate(magicX,magicY,magicZ);
+        console.log(magicX, magicY, magicZ);
+        scale(50)
+        rotate(180)
+        noStroke();
+        // 
+        texture(textureImage);
+        model(ghostModel);
+        //sphere(100);
+    }
+    
+    function rectMove(){
+        noFill()
+        //Attempt on centering
+        widthSplit = width/64
+        heightSplit = height/64
+        translate(widthSplit, heightSplit)
+        for (var i = 0; i < 200; i++ ){ 
+        push()
+        rotate(sin(frameCount + i*2)* 100)
+        myColour = (sin(frameCount + i*3)* 100)
+        stroke(myColour,55,150,50);
+        rect (0,0,600 - i*3,600 - i*3);
+        // rect (500,500,600 + i*3,600 + i*3);
+        pop();
+        }
+    }
+    
+    
+    // Serial
+    // get the list of ports:
+    function printList(portList) {
+        // portList is an array of serial port names
+        for (var i = 0; i < portList.length; i++) {
+        // Display the list the console:
+        console.log("port " + i + ": " + portList[i]);
+        }
+    }
+    
+    function serverConnected() {
+        console.log('connected to server.');
+    }
+        
+    function portOpen() {
+        console.log('the serial port opened.')
+    }
+        
+    function serialEvent() {
+        // read a String from serial port
+        // until you get carriage return and newline:
+        let inString = serial.readStringUntil('\r\n');  //store in a variable 
+        //check to see that there's actually a string:
+        if (inString.length > 0){
+        // if (inString !== 'hello') {
+            let inputs = split(inString, ',');   // split the string on the commas, put into an array
+            if (inputs.length > 2) {       // if there are two or more elements
+            magicX = inputs[0];
+            magicY = inputs[1];
+            magicZ = inputs[2]; 
+            // magic readings
+            magicX = map(magicX, 400, 700, -200, 200);
+            magicY = map(magicY, 400, 700, -200, 200);
+            magicZ = map(magicZ, 400, 700, -200, 200);
+            }
+        }
+        // }
+        // send a byte to ask for more data ("call and response"):
+        // serial.write("A");
+    }
+        
+    function serialError(err) {
+        console.log('Something went wrong with the serial port. ' + err);
+    }
+        
+    function portClose() {
+        console.log('The serial port closed.');
+    }
+                    </pre>
+                </div>
+                <h2 class="grid-box">Texture Tests - 3D Objects</h2>
+                <div class="grid-box">
+                    <div class="grid-flex">
+                        <div class="grid-box"><img src="phys-comp/midterm/texture1.jpg"></div>
+                        <div class="grid-box"><img src="phys-comp/midterm/texture2.jpg"></div>
+                    </div>
+                </div>
+                <h2 class="grid-box">Making the Wand</h2>
+                <div class="grid-box">
+                    <p>
+                        We wanted to make our own wand and went to Michaels’ + Blick Art Material. We purchased a wooden dowel, colored paper, and decorations. We went to the woodshop and used a miter saw to cut the dowel in half. We also created our own magical illustrations and used it as the head part of the wand.
+                    </p>
+                    <div class="grid-flex">
+                        <div class="grid-box"><img src="phys-comp/midterm/wand1.jpg"></div>
+                        <div class="grid-box"><img src="phys-comp/midterm/wand2.jpg"></div>
+                        <div class="grid-box"><img src="phys-comp/midterm/wand3.jpg"></div>
+                    </div>
+                </div>
+            </div>
+            <h1>Midterm Result</h1>
+            <div class="grid-index">
+                <h2 class="grid-box">Final</h2>
+                <div class="grix-box">
+                    <video controls> 
+                        <source src="phys-comp/midterm/final.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <br>
+                    <h6>Schematic (Circuit Diagram)</h6>
+                    <img src="phys-comp/midterm/circuit.jpg">
+                    <br>
+                    <h6>Conclusion & Takeaways</h6>
+                    <p>
+                        Playing with sensor was very fun. When one sensor didn’t work out, we were quick to seek an alternative solution.
+                        <br><br>
+                        First, we started by connecting 2D-based p5. animation with a pressure sensor to space-responsive 3D p5 work. We succeeded in making the 3D object responsive to physical movement. However, it was not moving as smoothly as we wanted. 
+                        <br><br>
+                        In the future, we would like to find out what’s causing the lag, and make 3D object show a smooth movement with clear visual presentation.
+                    </p>
+                </div>
+            </div>
         </details>
     </section>
-
-
-
 
     <footer>
         <section>
