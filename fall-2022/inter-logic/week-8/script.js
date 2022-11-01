@@ -44,36 +44,34 @@ function draw() {
     noFill();
     stroke(187,156,241);
     beginShape();
-    for (var i = 0; i < positions.length; i++) {
-        vertex(positions[i][0], positions[i][1]);
-    }
+    // for (var i = 0; i < positions.length; i++) {
+    //     vertex(positions[i][0], positions[i][1]);
+    // }
     endShape();
 
     noStroke();
-    for (var i = 0; i < positions.length; i++) {
-        fill(241,156,187);
-        ellipse(positions[i][0], positions[i][1], 4, 4);
-        fill(255,255,153);
-        // textSize(20);
-        // text(i, positions[i][0], positions[i][1]);
-    }
+    // for (var i = 0; i < positions.length; i++) {
+    //     fill(241,156,187);
+    //     ellipse(positions[i][0], positions[i][1], 4, 4);
+    //     fill(255,255,153);
+    //     text(i, positions[i][0], positions[i][1]);
+    // }
   
     if (positions.length > 0) {
         //eye
         image(leftEye,positions[63][0]-20,positions[64][1],60,40)
         image(rightEye,positions[68][0],positions[67][1],60,40)
-      
+        //toaster
         image(toaster,positions[61][0],positions[44][1],80,50)
-      
-        fill(255,255,4);
-        ellipse(positions[2][0], positions[2][1], 4, 4);
-      
+        //blush
+        fill(255,140,140);
+        ellipse(positions[1][0]+10, positions[1][1],60,20);
+        ellipse(positions[13][0]-10, positions[13][1],60,20);
+        // Anime line
         fill(255);
         textSize(20);
         text("I'm late!", positions[1][0]-100, positions[1][1]);
-        // uncomment for a surprise
-        // noStroke();
-        // fill(0, 255, 255);
-        // ellipse(positions[62][0], positions[62][1], 50, 50);
+
+
     }
 }
