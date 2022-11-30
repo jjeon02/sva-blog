@@ -1,5 +1,3 @@
-const density = "行列@マト2リ1ッ_ . ";
-
 let matrix;
 let timeText;
 let sec;
@@ -16,12 +14,9 @@ function setup(){
 
 function draw(){
   background(0);
-  fill(255,0,0);
-  textSize(50);
   sec = second();
   min = minute();
   hr = hour();
-  text(hr +':' + min +':' +  sec, 120,50);
 
   timeText = hr +':' + min +':' +  sec
 
@@ -49,4 +44,7 @@ function draw(){
 
     }
   }
+  fill(255,0,0);
+  textSize(50);
+  text(hr +':' + min +':' +  sec, 120,50);
 }
