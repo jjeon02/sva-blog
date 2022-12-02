@@ -8,13 +8,30 @@
 }
 html{
     overflow-y: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.bg-sky{
+    background: url("bg.jpg") no-repeat center fixed;
+    background-size: cover;
+}
+
+.bg-ice{
+    background: url("ice-cream.jpg") no-repeat center fixed;
+    background-size: cover;
+}
+
+.bg-tree{
+    background: url("forest.jpg") no-repeat center fixed;
+    background-size: cover;
 }
 
 body{
     margin:0;
     box-sizing:border-box;
     left:0;right:0;
-    background-color:var(--background);
+    /* background-color:var(--background); */
 }
 
 ::selection{background:var(--blue);color:white;}
@@ -48,6 +65,9 @@ footer{
     border-top: 1px solid var(--line);
 }
 
+footer > section > p > a{
+    background: #ffff00;
+}
 /* TYPOGRAPHY */
 
 @font-face {
@@ -81,7 +101,7 @@ a:after{color: var(--text);}
 .icon{text-decoration:none;transition: .2s linear;}
 .icon:hover{color:var(--blue);}
 
-h1{font-size: calc(2rem + ((1vw - 3px) * 1.358));line-height:1.2;margin-bottom: 0px;font-weight:400;text-transform: uppercase;}
+h1{font-size: calc(2rem + ((1vw - 3px) * 1.358));line-height:1.2;margin-bottom: 0px;font-weight:400;text-transform: uppercase;background: #ffff00;display:inline-block;}
 h2{font-size:20px;line-height:1.6;font-weight:600;}
 details > h1 {margin-top: 24px;}
 h2 {text-transform:uppercase;}
@@ -90,7 +110,7 @@ summary,h6,p,table{font-size:20px;line-height:1.6;}
 h6 {font-weight: 400;}
 p span, button, .case-study, span{font-size:20px;line-height:1.6;font-weight:400;}
 p,ul,ol,li,p a,table, summary, pre{font-weight:200;}
-summary{text-transform:uppercase;}
+summary{text-transform:uppercase;background:var(--background);}
 
 
 ul{font-family: 'Noto Sans KR', sans-serif; font-size:20px;line-height:36px;font-weight:400;}
@@ -115,8 +135,9 @@ h2 a:hover,h6 a:hover,ul li a:hover, p a:hover{color:blue;}
 }
 
 /* SECTIONS */
+details{background:var(--background);padding: 0px 24px;}
 section{width:100%;padding:24px;max-width:1080px;margin: 0 auto;}
-summary{width:100%; border-bottom: 1px solid var(--line);}
+summary{width:100%; border-bottom: 1px solid var(--line);padding: 2px 6px;}
 details > ol > img{padding: 12px 0;}
 
 .grid-index{width:100%;display:grid;grid-template-columns: 280px 1fr;grid-gap:32px;}
@@ -151,7 +172,7 @@ pre::-webkit-scrollbar-track {outline:none;background-color: #ddd;border-radius:
     width:100%;
     height:42px;
     color: var(--text);
-    background: var(--background);
+    background: rgba(255,255,255,.6);
     border-bottom: 1px solid var(--line);
     z-index:4;
     overflow:hidden;
