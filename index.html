@@ -11,9 +11,250 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="favicon_blue.jpg" type="image/x-icon">
         <link rel="apple-touch-icon" href="favicon_blue.jpg" type="image/x-icon">
-        <link rel="stylesheet" type="text/css" href="index.css">
+        <!-- <link rel="stylesheet" type="text/css" href="index.css"> -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+        <style>
+            /* default css start */
+            *{
+                margin: 0;padding:0;box-sizing:border-box;scroll-behavior:smooth;outline:none;
+                transition: .2s linear;
+                font-family: 'Noto Sans KR', sans-serif;
+                box-sizing: border-box;
+                line-height: 1.6;
+            }
+            html{
+                overflow-y: auto;
+            }
+
+            body{
+                margin:0;
+                box-sizing:border-box;
+                left:0;right:0;
+                background-color:var(--background);
+            }
+
+            ::selection{background:var(--blue);color:white;}
+            ::-moz-selection{background:var(--blue);color:white;}
+
+            /* SCROLLBAR */
+            ::-webkit-scrollbar {width:8px;}
+            ::-webkit-scrollbar-track {background: var(--background); border-left: 1px solid var(--line);}
+            ::-webkit-scrollbar-thumb {background-color: var(--background); border: 1px solid var(--line) ;border-radius: 6px;}
+            @media screen and (max-width:1200px){::-webkit-scrollbar {display: none;}}
+
+            :root {
+                --background:#ffffff;
+                --line: #444;
+                --text: #000;
+                --blue: #0000ff;
+                --transparent:rgba(0,0,0,.72);
+            }
+
+            img{width:100%;display:inline-block;}
+
+            /* VIDEO */
+            video{width:100%; max-width:720px; margin: 0 auto;display:block;}
+            iframe{width:100%;height:480px;margin: 0 auto;}
+            @media screen and (max-width:800px){iframe{height:200px;}}
+
+            footer{
+                margin:0px 0 80px 0;
+                width:100%;
+                text-align:center;
+                border-top: 1px solid var(--line);
+            }
+
+            /* TYPOGRAPHY */
+
+            @font-face {
+                font-family: 'Noto Sans KR', sans-serif;
+                src: url("Noto_Sans_KR/NotoSansKR-Black.otf"), url("Noto_Sans_KR/NotoSansKR-Bold.otf"), url("Noto_Sans_KR/NotoSansKR-Light.otf"), url("Noto_Sans_KR/NotoSansKR-Medium.otf"), url("Noto_Sans_KR/NotoSansKR-Regular.otf"), url("Noto_Sans_KR/NotoSansKR-Thin.otf");
+            } 
+                
+            /* @font-face {
+                font-family: "pixelVarious";src: url("RetroFutureGX.ttf");font-weight: 100 900;
+            } */
+
+            @font-face {
+                font-family: 'Prompt', sans-serif;
+                src: url("Prompt/Prompt-Black.ttf"),url("Prompt/Prompt-BlackItalic.ttf"),url("Prompt/Prompt-Bold.ttf"),url("Prompt/Prompt-BoldItalic.ttf"),url("Prompt/Prompt-ExtraBold.ttf"),url("Prompt/Prompt-ExtraBoldItalic.ttf"),url("Prompt/Prompt-ExtraLight.ttf"),url("Prompt/Prompt-ExtraLightItalic.ttf"), url("Prompt/Prompt-Italic.ttf"), url("Prompt/Prompt-Light.ttf"),url("Prompt/Prompt-LightItalic.ttf"),url("Prompt/Prompt-Medium.ttf");
+            }
+
+            @font-face {
+                font-family: 'Syne', sans-serif;
+                src: url(Syne/static/Syne-Bold.ttf), url(Syne/static/Syne-ExtraBold.ttf), url(Syne/static/Syne-Medium.ttf), url(Syne/static/Syne-Regular.ttf),url(Syne/static/Syne-SemiBold.ttf);
+            }
+
+            h1, h2, h3, h4, h5, h6, p, a, span, ul, li, ol, caption, summary, table, pre{
+                margin:0;padding:0;color:var(--text);transition: .2s linear;
+            }
+
+            a{color:var(--text);text-decoration:underline;}
+            a:hover{cursor:pointer;color:var(--blue);}
+            a:visited,.icon:visited{color: var(--text);}
+            a:after{color: var(--text);}
+
+            .icon{text-decoration:none;transition: .2s linear;}
+            .icon:hover{color:var(--blue);}
+
+            h1{font-size: calc(2rem + ((1vw - 3px) * 1.358));line-height:1.2;margin-bottom: 0px;font-weight:400;text-transform: uppercase;}
+            h2{font-size:20px;line-height:1.6;font-weight:600;}
+            details > h1 {margin-top: 24px;}
+            h2 {text-transform:uppercase;}
+            details > .grid-index > .grid-box > ul, details > .grid-index > ul{padding-left:16px;}
+            summary,h6,p,table{font-size:20px;line-height:1.6;}
+            h6 {font-weight: 400;}
+            p span, button, .case-study, span{font-size:20px;line-height:1.6;font-weight:400;}
+            p,ul,ol,li,p a,table, summary, pre{font-weight:200;}
+            summary{text-transform:uppercase;}
+
+
+            ul{font-family: 'Noto Sans KR', sans-serif; font-size:20px;line-height:36px;font-weight:400;}
+            ul li a{text-decoration:none;font-weight:400;}
+            .sidenav > p > a {font-family: 'Noto Sans KR', sans-serif;font-size:20px;line-height:30px;font-weight:400}
+
+            h2 a:hover,h6 a:hover,ul li a:hover, p a:hover{color:blue;}
+            .center{text-align:center;}
+
+            /* Unicode Arrow */
+            .arrow-uni{font-size:large;padding-left:6px;}
+
+            /* TOP ICON */
+            .arrow{
+                background: var(--background);
+                width:60px;height: 60px;
+                padding:12px;
+                border: 1px solid var(--line);
+                border-radius:50%;
+                position:fixed;
+                bottom: 24px;right:24px;z-index:4;
+            }
+
+            /* SECTIONS */
+            section{width:100%;padding:24px;max-width:1080px;margin: 0 auto;}
+            summary{width:100%; border-bottom: 1px solid var(--line);}
+            details > ol > img{padding: 12px 0;}
+
+            .grid-index{width:100%;display:grid;grid-template-columns: 280px 1fr;grid-gap:32px;}
+            details > .grid-index{margin: 60px 0 0 0;}
+            .grid-flex{width:100%;display:flex;grid-gap:24px;margin: 12px 0 0 0;}
+            .grid-box{width:100%;margin-bottom: 12px;}
+
+            @media only screen and (max-width: 890px) {
+                .grid-index, .grid-flex{display:block;}
+                .grid-box > h3{margin-bottom: 24px;}
+            }
+
+            .divider{border-top: 1px solid var(--line); margin: 12px 0;}
+            .outline{border: 1px solid var(--line);}
+
+            .table-wrapper{width: 100%;overflow-y: scroll; margin:12px 0; padding: 12px; background: #ddd; border: none; outline: none; }
+            table{border-collapse:collapse;width:100%;margin:0;padding:0;background: var(--background);}
+            td, th{border: 1px solid var(--line); text-align:left; padding: 4px 12px;width:auto;}
+
+            pre{
+                background: #ddd;padding:12px;margin: 12px 0 0 0; border-radius: 8px;font-size:16px;line-height:1.6;
+                height:480px;overflow-y:scroll;border: 1px solid var(--line);
+            }
+
+            pre::-webkit-scrollbar-thumb {border-radius: 8px;background-color:var(--line);}
+            pre::-webkit-scrollbar-track {outline:none;background-color: #ddd;border-radius: 0 8px 8px 0;border: none;}
+            @media screen and (max-width:1200px){pre::-webkit-scrollbar {display: none;} pre{width:100%;height:auto;}}
+
+            /* NAVBAR */
+            .nav-wrapper{
+                position:fixed;margin:0;padding:0;top:0;
+                width:100%;
+                height:46px;
+                color: var(--text);
+                background: var(--background);
+                border-bottom: 1px solid var(--line);
+                z-index:4;
+                overflow:hidden;
+            }
+
+            .nav-container{width:100%;height:46px;display:block;margin:0 auto;}
+
+            .nav-container > h6, .nav-container > ul{
+                display:inline-block;
+                margin:0 0 0;
+                right:0;
+            }
+
+            .nav-container >h6{ padding: 6px 8px;}
+            .nav-container >ul{float:right;list-style: none;}
+            .nav-container >ul>li{
+                display:inline-block;
+                margin:0;
+                padding: 4px 8px;
+            }
+            .nav-button{
+                display:none;
+                float:right;
+                padding:0;
+                border:none;background:none;
+            }
+
+            .border{
+                border-top: 1px solid var(--line);
+            }
+
+            /* NAV RELATIVE*/
+            @media screen and (max-width: 1480px) and (min-width:1075px){
+                .nav-container{
+                    padding-left:24px;
+                    padding-right:24px;
+                }
+            }
+            @media screen and (max-width: 1074px) {
+                .nav-menu-items{display:none;}
+                .slide-menu{
+                    width:100vw;height:100vh;
+                    z-index:5;transform:translateX(100vw);
+                }
+                .nav-container > ul{display:none;}
+                .nav-container > h6{padding: 6px 12px;}
+                .nav-button{
+                    display:inline-block;
+                    outline:none;
+                    background:none;
+                    padding: 6px 12px;
+                }
+            }
+
+            .sidenav {
+                width:0;
+                height:100%;
+                position: fixed; 
+                top:0;right:0;
+                background-color: var( --background);
+                overflow-x: hidden;
+                transition: 0.5s; padding-top: 60px;
+                z-index:6;
+            }
+
+            .sidenav > p{
+                padding:0 24px;
+                line-height: 2.4;
+                color: var(--text);
+            }
+            .sidenav > p > a {text-decoration:none;}
+            .sidenav > .icon{
+                position: absolute;
+                bottom:24px;left:24px;
+                font-size:32px;line-height:1.4;width:90vw;
+            }
+            .closebtn{
+                position: absolute;
+                text-align:right;
+                top:0; right:0;
+                padding: 6px 12px;
+                color: var(--text);
+            }
+
+
+        </style>
     </head>
     <body>
         <div id="sideNav" class="sidenav">
@@ -63,6 +304,51 @@
         </footer>
 
         <!-- JS -->
-        <script src="index.js"></script>
+        <script >
+            // GOBACK BUTTON
+            // function goBack() {
+            //     window.history.back();
+            // }
+
+            //NAVIGATION
+            function openNav() {
+            document.getElementById("sideNav").style.width= "100%";
+            }
+
+            function closeNav() {
+            document.getElementById("sideNav").style.width = "0";
+            }
+            
+            // SLIDE
+            var slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+            showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+            showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("slides");
+            if (n > slides.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none"; 
+            }
+            slides[slideIndex-1].style.display = "block";  
+            }
+
+            // Slider for Quotation
+            var slider = document.getElementById("font-weight-changer");
+
+            slider.addEventListener('input', function() {
+                var size = slider.value;
+                document.getElementById("font-change").style.fontWeight = size;
+            });
+        </script>
     </body>
 </html>

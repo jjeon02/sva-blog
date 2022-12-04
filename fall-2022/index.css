@@ -111,7 +111,7 @@ h6 {font-weight: 400;}
 p span, button, .case-study, span{font-size:20px;line-height:1.6;font-weight:400;}
 p,ul,ol,li,p a,table, summary, pre{font-weight:200;}
 summary{text-transform:uppercase;background:var(--background);}
-
+details>h1{background:var(--background);}
 
 ul{font-family: 'Noto Sans KR', sans-serif; font-size:20px;line-height:36px;font-weight:400;}
 ul li a{text-decoration:none;font-weight:400;}

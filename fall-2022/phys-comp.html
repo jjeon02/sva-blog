@@ -379,7 +379,7 @@ void setup() {
                     <p>We ensured that the photoresistor was in an accessible position for the user to cover it and make the circuit work. </p> <br>
                     <h6>Code</h6>
                     <pre>
-#include <Servo.h>          
+<!-- #include <Servo.h>  -->
 
 const int AIN1 = 13;           
 const int AIN2 = 12;           
@@ -405,7 +405,7 @@ void loop() {
     float motorSpeed = map(brightness, 300, 900, 10, 50);
     float frequency = map(brightness, 300, 900, 100, 2000);
     int speed = map(brightness, 300,900,3000,100);
-    if (brightness < 300) {
+    if (brightness > 300) {
         noTone(buzzerPin);
     }
     tone(buzzerPin,frequency, 10);
@@ -1038,7 +1038,237 @@ function portClose() {
         </details>
         <details>
             <summary>&nbsp;Week 10: Let there be light</summary>
+            <h1>Let there be light</h1><br>
+            <caption>Team member: Yuri Kim, Jueun Jeon, Amogh Gharpure</caption>
             <p><a href="https://www.notion.so/jueun-jeon/Week-10-Let-there-be-Light-0e7c39e97ded419eacace9b6b7ea4bc0" target="_blank">Blog</a></p>
+            <div class="grid-index">
+                <h2 class="grid-box">Project goal</h2>
+                <p class="grid-box">
+                    We utilized LED strips to improve last week's homework. Each of the led lights on the LED strips turns on and off, changes colors in response to sensor input. 
+                </p>
+                <h2 class="grid-box">Concept</h2>
+                <p class="grid-box">
+                    We created a 'light box', in which LED lights respond to Kirby's (Character) movement. When the Kirby on the monitor screen reaches the borders, the LED lights attached inside the borders of the box turn on corresponding to Kirby's position.<br>
+                    <img src="phys-comp/week9/box.jpg" style="margin-top: 20px;">
+                </p>
+                <h2 class="grid-box">Components</h2>
+                <p class="grid-box"> Arduino board, breadboard, resistor, LED strip, 2 POTs, 1 button, paper, tracing paper</p>
+                <h2 class="grid-box">Process</h2>
+                <div class="grid-box">
+                    <div class="grid-flex">
+                        <div><img src="phys-comp/week9/process1.jpg"></div>
+                        <div><img src="phys-comp/week9/process2.jpg"></div>
+                    </div> 
+                    <p>
+                        For the first draft of the box design, we attached the diffusion on the front sides of the box. However, while the LEDs are lighting up, it does not clearly indicate the left, right, top, and bottom sides of the borders. This is the reason why we fixed the box, changing the position of the diffusor from front to side. <br>
+                    </p>
+                    <img src="phys-comp/week9/process3.jpg">
+                </div>
+                <h2 class="grid-box">Circuit connections: Final Code</h2>
+                <div class="grid-box">
+                    <img src="phys-comp/week9/circuit-final.jpg">
+                    <br><br>
+                    <h6>Arduino</h6>
+                    <pre>
+// include <FastLED.h>
+
+int sensorPin1 = A0;
+int sensorVal1;
+int sensorPin2 = A1;
+int sensorVal2;
+int sensorVal3 = 0;
+
+#define NUM_LEDS 20
+#define DATA_PIN 3
+CRGB leds[NUM_LEDS];
+
+void setup() {
+    Serial.begin(9600);
+    while (Serial.available() <= 0) {   
+    Serial.println("hello");  
+    delay(300);         
+    }
+    FastLED.addLeds < WS2812, DATA_PIN, GRB >(leds, NUM_LEDS);
+    pinMode(2, INPUT); 
+}
+
+void loop() {
+    sensorVal1 = analogRead(sensorPin1);
+    sensorVal2 = analogRead(sensorPin2);  
+
+    if (Serial.available() > 0) {  
+    int inByte = Serial.read();
+        sensorVal1 = analogRead(sensorPin1);
+    sensorVal1 = map(sensorVal1, 0, 1203, 0, 1000);
+    sensorVal2 = analogRead(sensorPin2);
+    sensorVal2 = map(sensorVal2, 0, 1203, 0, 1000);
+    sensorVal3 = map(digitalRead(2), 0, 1, 0, 255);
+
+        Serial.print(sensorVal1);
+        Serial.print(",");
+        Serial.print(sensorVal2);
+    Serial.print(",");
+    Serial.println(sensorVal3);
+    }
+
+    // // First, clear the existing led values
+
+    if (sensorVal1 < 10){
+    fill_solid(leds +7, 4, CRGB::Red); //7-10
+    fill_solid(leds +16, 4, CRGB::Black); //16-19
+    
+    if(digitalRead(2)==HIGH){
+        fill_solid(leds +7, 4, CRGB::Blue); //7-10
+    }
+    }
+    
+    else if(850 < sensorVal1) {
+    fill_solid(leds +7, 4, CRGB::Black); //7-10
+    fill_solid(leds +16, 4, CRGB::Red); //16-19
+    
+    if(digitalRead(2)==HIGH){
+        fill_solid(leds +16, 4, CRGB::Blue); //16-19
+    }3
+    }
+    
+    else{
+    fill_solid(leds +7, 4, CRGB::Black); //7-10
+    fill_solid(leds +16, 4, CRGB::Black); //7-10
+    }
+
+    ///SENSOR 2 (1-6, 11-16)
+    if (sensorVal2 < 10){
+    fill_solid(leds +0, 6, CRGB::Red); //0-5
+    fill_solid(leds +10, 6, CRGB::Black); //10-15
+    if(digitalRead(2)==HIGH){
+    fill_solid(leds +0, 6, CRGB::Blue); //0-5
+    }
+    }
+
+    else if (850 < sensorVal2){
+    fill_solid(leds +0, 6, CRGB::Black); //0-5
+    fill_solid(leds +10, 6, CRGB::Red); //10-15
+        if(digitalRead(2)==HIGH){
+        fill_solid(leds +10, 6, CRGB::Blue); //10-15
+    }
+    }
+    
+    else{
+    fill_solid(leds +0, 6, CRGB::Black); //0-5
+    fill_solid(leds +10, 6, CRGB::Black); //10-15
+    }
+
+    FastLED.show();
+
+}
+                    </pre>
+                    <br><br>
+                    <h6>p5.js</h6>
+                    <pre>
+let serial; // variable to hold an instance of the serialport library
+let portName = '/dev/tty.usbserial-120'; // replace with your own port
+
+let val1 = 0;
+let val2 = 0;
+let val3 = 0;
+let kirby;
+let lightbg;
+let darkbg;
+
+
+function preload(){
+    kirby = loadImage('kurby.gif');
+    lightbg = loadImage('bg1.jpg');
+    darkbg = loadImage('bg2.jpg');
+}
+
+function setup() {
+    createCanvas(windowWidth, windowHeight);
+    
+    // Serial setup
+    
+    serial = new p5.SerialPort();       // make a new instance of the serialport library
+    serial.on('list', printList);  // callback to list all the ports
+    serial.on('connected', serverConnected); // callback for connecting to server
+    serial.on('open', portOpen);        // callback to check port opening
+    serial.on('data', serialEvent);     // callback for when new data arrives
+    serial.on('error', serialError);    // callback for errors
+    serial.on('close', portClose);      // callback for the port closing
+    
+    serial.list();                      // list the serial ports
+    serial.open(portName);              // open a serial port
+    serial.write('x');
+}
+
+function draw() {
+    // translate(val1, val2);
+
+    if (val3 == 0){
+            image (lightbg, 0,0,windowWidth,windowHeight);
+    }
+    else {
+            image (darkbg, 0,0,windowWidth,windowHeight);
+    }
+    
+    image (kirby, val1,val2,100,100);
+}
+
+
+// *** Serial
+
+// get the list of ports:
+function printList(portList) {
+    // portList is an array of serial port names
+    for (var i = 0; i < portList.length; i++) {
+    // Display the list the console:
+    console.log("port " + i + ": " + portList[i]);
+    }
+}
+
+function serverConnected() {
+    console.log('connected to server.');
+}
+    
+function portOpen() {
+    console.log('the serial port opened.')
+}
+    
+function serialEvent() {
+    let inString = serial.readStringUntil("\r\n"); 
+    if (inString) {
+    if (inString !== "hello") {
+        let sensors = split(inString, ",");
+        if (sensors.length > 1) {       
+        val1 = map(sensors[0], 0, 950, 0, width);
+        val2 = map(sensors[1], 0, 950, 0, height);
+        val3 = map(sensors[2], 0, 1, 0, 255);
+        serial.write('x');
+        console.log(val1,val2,val3);
+        }
+    }
+    }
+}
+    
+function serialError(err) {
+    console.log('Something went wrong with the serial port. ' + err);
+}
+    
+function portClose() {
+    console.log('The serial port closed.');
+}
+                    </pre>
+                </div>
+                <h2 class="grid-box">Result</h2>
+                <div class="grid-box">
+                    <iframe src="https://www.youtube.com/embed/RrXhCzc_TrY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <br>
+                    <img src="phys-comp/week9/result.jpg">
+                </div>
+                <h2>Conclusion & Takeaways</h2>
+                <p>Values from the soft linear potentiometer were not consistent and mapping them gave errors. We didn't understand why that happened;</p>
+            </div>
+            <br>
+            <div class="border"></div>
         </details>
         <details>
             <summary>&nbsp;Final Proposal</summary>
