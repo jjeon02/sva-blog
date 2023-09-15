@@ -206,6 +206,11 @@
                     padding-left:24px;
                     padding-right:24px;
                 }
+                .video-wrapper{
+                    display: grid;
+                    grid-template-columns: auto auto;
+                    grid-gap: 20px;
+            }
             }
             @media screen and (max-width: 1074px) {
                 .nav-menu-items{display:none;}
@@ -221,6 +226,9 @@
                     background:none;
                     padding: 6px 12px;
                 }
+                .video-wrapper{
+                display: inline-block;
+            }
             }
 
             .sidenav {
@@ -253,57 +261,35 @@
                 color: var(--text);
             }
 
+            iframe{
+                width: 100%;
+                height: 360px;
+                margin: 0 auto;
+            }
 
         </style>
     </head>
     <body>
-        <div id="sideNav" class="sidenav">
-            <p>
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="text-decoration: none;">
-                CLOSE
-                </a>
-            </p>
-            <p><a href="service-design.html">Fall 2022</a></p>
-            <p><a href="https://jjeon02.github.io/portfolio/index.html">Main Portfolio</a></p>
-        </div>
-
         <header class="nav-wrapper">
             <div class="nav-container">
                 <h6><a href="index.html" class="icon">JUEUN JEON BLOG</a></h6>
-                <ul>
-                    <li><a href="service-design.html">Fall 2022</a></li>
-                </ul>
-                <button class="nav-button" onclick="openNav()"><p>MENU</p></button>
             </div>
         </header>
-
-        <a href="#top">
-            <img src="arrow.svg" class="arrow">
-        </a>
 
         <div style="height:48px;"></div>
         <section>
             <p>
-                Hello World!<br>
-                This is Jueun Jeon's Blog dedicated to progress and works of MFA Interaction Design for School of Visual Arts. 
+                Statement of Care
             </p>
             <br>
-            <p><a href="fall-2022/index.html">Fall 2022 Class</a></p>
-            <p><a href="craft-inter/index.html">Crafting Interaction / 2023 </a></p>
-            <p><a href="thesis-care/index.html">Thesis / 2023 </a></p>
-        </section>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/hz6GULbowAk?si=ZPt4Y00PDsGFL6dU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/l5jtFqWq5iU?si=91F77jDC-_bDGu9Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/cSKGa_7XJkg?si=v58aWCMPvMGFyD59" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/-7ORAKULel4?si=oN7pg4OC8v8HLfhZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
             
-        <footer>
-            <section>
-                <p><a href="https://jjeon02.github.io/portfolio/index.html" target="_blank">PORTFOLIO</a></p>
-                <p>
-                    <a href="https://www.linkedin.com/in/jueun-jeon-0436/" target="_blank">LINKEDIN</a> / 
-                    <a href="https://www.behance.net/jueunjeon" target="_blank">BEHANCE</a>  /
-                    <a href="mailto:june.jeon@gmail.com" target="_blank">JUNE.JEON@GMAIL.COM</a>  /
-                    <a href="about.html#resume">RESUME</a>
-                </p>
-            </section>
-        </footer>
+        </section>
 
         <!-- JS -->
         <script >
