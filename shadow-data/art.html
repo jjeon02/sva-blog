@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <title>ai.art</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
+    </head>
+    <body>
+        <div id="sideNav" class="sidenav">
+            <button class="closebtn" onclick="closeNav()" style="text-decoration: none;">
+                <!-- <a href="javascript:void(0)" > -->
+                CLOSE
+                <!-- </a> -->
+            </button>
+            <p><a href="index.html">Manifesto</a></p>
+            <p><a href="ai-art.html">Art</a></p>
+        </div>
+        
+        <nav class="nav-wrapper" aria-label="Main">
+            <div class="nav-container">
+                <h6>J.JEON</h6>
+                <ul>
+                    <li><a href="index.html">Manifesto</a></li>
+                    <li> <a href="ai-art.html">Art</a></li>
+                    <li> <a href="art.html">Art - 2</a></li>
+                </ul>
+                <button class="nav-button" class="margin:0px 0px;" onclick="openNav()"><p>MENU</p></button>
+            </div>
+        </nav>
+
+        <div class="button-wrapper">
+            <button onClick="clearArt()">Clear</button>
+            <button onClick="saveArt()">Save</button>
+        </div>
+
+        <div id="canvas"></div>
+        <!-- <p id="mouseCollective"></p> -->
+        
+        
+        <script src="index.js"></script>
+    </body>
+</html>
