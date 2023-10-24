@@ -20,7 +20,9 @@ function setup() {
 }
 
 function draw() { 
-  mouseBrush();
+  if (mouseIsPressed){
+    mouseBrush();
+  }
 } 
 
 function mouseBrush(){
