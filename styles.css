@@ -1,0 +1,31 @@
+
+body{
+  font-family: "IBM Plex Sans KR", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background: var(--bg);
+}
+::selection{color:var(--bg);background-color: var(--blue);}
+
+:root{
+    --black: rgb(32, 34, 38);
+    --blue: rgb(33, 33, 255);
+    --bg: rgb(169, 173, 180);
+    --section: 24px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
+
+p,ul{font-size: 20px;}
+a{
+  text-decoration: none;
+  color: var(--black);
+}
+a:hover{color:var(--blue)}
+a:selected{color:var(--black)}
+
+section{
+    width: 100%;
+    max-width: 960px;
+    margin: var(--section) auto;
+}
